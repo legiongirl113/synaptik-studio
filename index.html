@@ -101,6 +101,49 @@
 
     </main>
 
+    <!-- HOW IT WORKS SECTION -->
+    <section class="border-t border-slate-900 bg-black/30 py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">The Workflow</h2>
+                <p class="text-slate-400">From text script to broadcast animation in three steps.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line (Desktop Only) -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-slate-800 via-cyan-900 to-slate-800 -z-10"></div>
+
+                <!-- Step 1 -->
+                <div class="bg-slate-950 border border-slate-800 p-8 rounded-2xl relative">
+                    <div class="w-12 h-12 bg-slate-900 border border-cyan-500/50 rounded-full flex items-center justify-center text-cyan-400 font-bold mb-6 mx-auto shadow-[0_0_15px_rgba(6,182,212,0.3)]">1</div>
+                    <h3 class="text-xl font-bold text-white mb-3 text-center">Define Schema</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-center">
+                        Upload character references or generate new actors. Our engine "locks" their identity (face, voice, clothing) into a vector database for perfect consistency across scenes.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-950 border border-slate-800 p-8 rounded-2xl relative">
+                    <div class="w-12 h-12 bg-slate-900 border border-cyan-500/50 rounded-full flex items-center justify-center text-cyan-400 font-bold mb-6 mx-auto shadow-[0_0_15px_rgba(6,182,212,0.3)]">2</div>
+                    <h3 class="text-xl font-bold text-white mb-3 text-center">Input Script</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-center">
+                        Write your screenplay in standard format. Assign dialogue to actors and define camera angles. The LLM parses your text into visual diffusion prompts automatically.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-950 border border-red-900/30 p-8 rounded-2xl relative">
+                    <div class="w-12 h-12 bg-slate-900 border border-red-500/50 rounded-full flex items-center justify-center text-red-500 font-bold mb-6 mx-auto shadow-[0_0_15px_rgba(220,38,38,0.3)]">3</div>
+                    <h3 class="text-xl font-bold text-white mb-3 text-center">Neural Render</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-center">
+                        Execute the render. Choose <strong>Safe Mode</strong> for general audiences or verify your ID to unlock <strong>Unrestricted Mode</strong> for mature narrative flexibility.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="border-t border-slate-900 py-12 text-center">
         <p class="text-slate-600 text-sm">© 2025 Synaptik AI, Inc. (Delaware C-Corp)</p>
