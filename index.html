@@ -106,29 +106,30 @@
         <p class="text-slate-600 text-sm">© 2025 Synaptik AI, Inc. (Delaware C-Corp)</p>
     </footer>
 
-    <!-- LOGIC SCRIPT -->
+        <!-- LOGIC SCRIPT -->
     <script type="module">
         // 1. Initialize Icons
         lucide.createIcons();
 
-        // 2. Import Firebase from CDN (No install needed)
+        // 2. Import Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        // 3. Paste Your Config Here
-        // YOU MUST REPLACE THESE VALUES WITH YOUR REAL FIREBASE KEYS
+        // 3. YOUR FIREBASE CONFIG (Paste your keys here)
+        // Only change the text inside the quotes "..."
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY_HERE",
-            authDomain: "YOUR_PROJECT.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
+            apiKey: "AIzaSyDOCAbC123dEfG456hIjK789", <-- Paste your API Key here
+            authDomain: "synaptik-prod.firebaseapp.com",
+            projectId: "synaptik-prod",
+            storageBucket: "synaptik-prod.appspot.com",
+            messagingSenderId: "1234567890",
+            appId: "1:123456789:web:abcdef123456"
         };
 
         // 4. Init App
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+
 
         // 5. Handle Form Submit
         const form = document.getElementById('waitlistForm');
