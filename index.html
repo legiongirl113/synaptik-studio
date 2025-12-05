@@ -105,8 +105,8 @@
     <footer class="border-t border-slate-900 py-12 text-center">
         <p class="text-slate-600 text-sm">© 2025 Synaptik AI, Inc. (Delaware C-Corp)</p>
     </footer>
-
-        <!-- LOGIC SCRIPT -->
+    
+ <!-- LOGIC SCRIPT (DEBUG MODE) -->
     <script type="module">
         // 1. Initialize Icons
         lucide.createIcons();
@@ -115,21 +115,25 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        // 3. YOUR FIREBASE CONFIG (Paste your keys here)
-        // Only change the text inside the quotes "..."
+        // 3. PASTE YOUR KEYS HERE (Make sure these are real!)
         const firebaseConfig = {
-            apiKey: "AIzaSyDOCAbC123dEfG456hIjK789", <-- Paste your API Key here
+            apiKey: "YOUR_API_KEY_HERE",
             authDomain: "synaptik-prod.firebaseapp.com",
             projectId: "synaptik-prod",
             storageBucket: "synaptik-prod.appspot.com",
-            messagingSenderId: "1234567890",
-            appId: "1:123456789:web:abcdef123456"
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
         };
 
-        // 4. Init App
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
+        // 4. Init App with Error Catching
+        let app, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            console.log("Firebase initialized");
+        } catch (e) {
+            alert("CRITICAL ERROR: Firebase Config is wrong. Check your API Keys in GitHub.");
+        }
 
         // 5. Handle Form Submit
         const form = document.getElementById('waitlistForm');
@@ -139,27 +143,31 @@
         
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            btn.innerHTML = "Processing...";
+            btn.innerHTML = "Sending...";
             btn.disabled = true;
 
             try {
+                // Attempt to write to database
                 await addDoc(collection(db, 'waitlist'), {
                     email: emailInput.value,
                     intent: intentInput.value,
                     createdAt: serverTimestamp(),
-                    source: 'static_landing'
+                    source: 'debug_landing'
                 });
 
-                // Show Success
+                // Success
                 document.getElementById('form-container').classList.add('hidden');
                 document.getElementById('successMessage').classList.remove('hidden');
+            
             } catch (err) {
-                console.error("Error:", err);
-                alert("Error connecting to Synaptik Server. Please check console.");
+                // FAILURE - SHOW THE ERROR POPUP
+                console.error(err);
+                alert("DATABASE ERROR: " + err.message + "\n\n(Take a screenshot of this and tell me what it says!)");
                 btn.innerHTML = "Try Again";
                 btn.disabled = false;
             }
         });
     </script>
+       
 </body>
 </html>
