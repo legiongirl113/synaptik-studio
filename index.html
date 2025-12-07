@@ -55,6 +55,7 @@
         import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
         import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc, setDoc } from "firebase/firestore";
 
+        // --- CONFIGURATION (YOUR KEYS) ---
         const firebaseConfig = {
             apiKey: "AIzaSyCRRPedeq475GwzlWjh32hLzGhuS6Sriqg",
             authDomain: "synaptic-prod.firebaseapp.com",
@@ -62,8 +63,7 @@
             storageBucket: "synaptic-prod.firebasestorage.app",
             messagingSenderId: "774821063316",
             appId: "1:774821063316:web:9ea93f514334ae2b536281"
-           };
-
+        };
 
         // Init Firebase safely
         let app, auth, db;
@@ -74,6 +74,7 @@
         } catch(e) { console.error("Firebase Init Error:", e); }
 
         const appId = "synaptik-v1";
+        const WALLET_ADDRESS = "6FCuhvc72da4N93j4XgnaqVEAcV1Dg7RQvTD4hJrh4Ks";
 
         // --- HUSTLE AI ENGINE (Pollinations) ---
         const generateRealImage = async (prompt) => {
@@ -97,7 +98,7 @@
             };
 
             const copyAddress = () => {
-                navigator.clipboard.writeText("6FCuhvc72da4N93j4XgnaqVEAcV1Dg7RQvTD4hJrh4Ks");
+                navigator.clipboard.writeText(WALLET_ADDRESS);
                 alert("Wallet Address Copied!");
             };
 
@@ -149,7 +150,7 @@
                                     <div className="text-3xl font-black text-white mb-1 brand-font">205 USDC</div>
                                     <div className="text-[10px] text-slate-500 font-mono mb-4">(Solana Network)</div>
                                     <div onClick={copyAddress} className="bg-black border border-slate-700 p-3 rounded-lg flex items-center justify-between cursor-pointer hover:border-cyan-500 transition-colors">
-                                        <code class="text-cyan-400 text-xs font-mono truncate mr-2">6FCuhvc72da4N93j4XgnaqVEAcV1Dg7RQvTD4hJrh4Ks</code>
+                                        <code class="text-cyan-400 text-xs font-mono truncate mr-2">{WALLET_ADDRESS}</code>
                                         <i data-lucide="copy" class="w-4 h-4 text-slate-500"></i>
                                     </div>
                                     <p className="text-[10px] text-slate-500 mt-4 font-mono">Email TX Hash to: <span className="text-white">founder@synaptikstudio.online</span></p>
@@ -229,11 +230,4 @@
                         </div>
                     </section>
 
-                    <footer className="border-t border-slate-900 py-10 bg-black/50 text-center text-xs text-slate-600 font-mono"><p>© 2025 Synaptik AI, Inc.</p></footer>
-                </div>
-            );
-        }
-
-        // --- COMPONENT 2: LOGIN ---
-        function Login({ onBack }) {
-            const
+                    <footer className="border-t border-slate-900 py-10 bg-black/50 text-center text-xs text-slate-600 font-mono"><p>© 2025 Synaptik AI, Inc. (Delaware C-Corp)</p></
